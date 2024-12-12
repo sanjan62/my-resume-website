@@ -1,114 +1,143 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
+    color: #333;
+    line-height: 1.6;
 }
 
+/* Header Section */
 header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
+    background: #0d47a1;
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 header nav ul {
     list-style: none;
     padding: 0;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 0;
 }
 
 header nav ul li {
-    display: inline;
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 header nav ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
     font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-footer {
-    background-color: #333;
-    color: white;
+header nav ul li a:hover {
+    color: #ffeb3b;
+}
+
+/* Intro Section */
+.intro {
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    padding: 50px 20px;
+    background: #ffffff;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    position: relative;
 }
 
-main {
-    padding: 20px;
-}
-
-h1, h2 {
-    color: #333;
-}
-
-ul, table {
-    margin: 20px 0;
-}
-
-ul li {
-    margin-bottom: 10px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-table th, table td {
-    padding: 8px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+.intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 5px;
+    background: linear-gradient(to right, #ff5722, #4caf50);
     border-radius: 5px;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #0d47a1;
 }
 
-button:hover {
-    background-color: #555;
+.intro p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    margin: 20px 0;
+    border: 5px solid #0d47a1;
+    margin: 20px auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
 }
-JavaScript (script.js)
-javascript
-Copy code
-$(document).ready(function() {
-    $("#contact-form").on("submit", function(e) {
-        e.preventDefault();
-        
-        let name = $("#name").val();
-        let email = $("#email").val();
-        let subject = $("#subject").val();
-        let message = $("#message").val();
-        
-        if (name && email && subject && message) {
-            alert("Message sent successfully!");
-            // You can integrate a real email service here
-        } else {
-            alert("Please fill in all fields!");
-        }
-    });
-});
+
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+.quote {
+    font-style: italic;
+    color: #ff5722;
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    background: #0d47a1;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Button */
+button {
+    padding: 10px 20px;
+    background: linear-gradient(to right, #ff5722, #4caf50);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(to right, #4caf50, #ff5722);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    .intro h1 {
+        font-size: 2rem;
+    }
+}
